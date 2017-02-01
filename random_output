@@ -1,0 +1,482 @@
+Run stream benchmark for your system
+L3 Cache on Macbook Pro is 6MB so problem size is just bigger at 16MB min
+First test should give Stream Benchmark or problem size is too small
+Second problem should give about twice the first
+=======================================
+Starting Single Material Data Structure
+=======================================
+
+GENMALLOC REPORT:               Volume 	     8000000 Bytes,    8000 KB
+GENMALLOC REPORT:             Pressure 	     8000000 Bytes,    8000 KB
+GENMALLOC REPORT:          Temperature 	     8000000 Bytes,    8000 KB
+GENMALLOC REPORT:              Density 	     8000000 Bytes,    8000 KB
+GENMALLOC REPORT:            Centroids 	    16000000 Bytes,   16000 KB
+GENMALLOC REPORT:            Neighbors 	   200000000 Bytes,  200000 KB
+GENMALLOC REPORT:        Neighbors ptr 	     8000000 Bytes,    8000 KB
+GENMALLOC REPORT:        Num_Neighbors 	     4000000 Bytes,    4000 KB
+GENMALLOC TOTAL:          Memory Size: 	   260000000 Bytes,  260000 KB,   260 MB
+
+Average Density of pure cells    2.000000, compute time is 1.239960 msecs
+Memory Operations  are 2.0 M memops, 16.0 Mbytes, 2.0 Mflops, 1.00:1 memops:flops
+Estimated performance 1.20 msec, actual 1.24 msec, model error -3.524162 %
+
+Pressure Calculation for cell,             compute time is 2.958610 msecs
+Memory Operations  are 4.0 M memops, 32.0 Mbytes, 3.0 Mflops, 1.33:1 memops:flops
+Estimated performance 2.39 msec, actual 2.96 msec, model error -19.133530 %
+
+
+=================================================
+Starting Cell-Dominant Full Matrix Data Structure
+=================================================
+
+Ratios to Full Data Structure
+Sparsity 97.400467 percent/Filled 2.599538 percent
+
+Ratios to Number of Cells
+Pure cell 80.018600 percentage/Mixed material 19.981300 percentage
+
+Ratios to Mixed Material Data Structure
+Mixed material Sparsity 5.000505 percent/Mixed material Filled 94.999496 percent
+
+1 matcell 800186 2 matcell 124881 3 matcell 49907 4 matcell 25025 5 matcell 0
+
+GENMALLOC REPORT:           VolumeBase 	   400000000 Bytes,  400000 KB
+GENMALLOC REPORT:       VolumeBase ptr 	     8000000 Bytes,    8000 KB
+GENMALLOC REPORT:         PressureFrac 	   400000000 Bytes,  400000 KB
+GENMALLOC REPORT:     PressureFrac ptr 	     8000000 Bytes,    8000 KB
+GENMALLOC REPORT:      TemperatureFrac 	   400000000 Bytes,  400000 KB
+GENMALLOC REPORT:  TemperatureFrac ptr 	     8000000 Bytes,    8000 KB
+GENMALLOC REPORT:          DensityFrac 	   400000000 Bytes,  400000 KB
+GENMALLOC REPORT:      DensityFrac ptr 	     8000000 Bytes,    8000 KB
+GENMALLOC REPORT:             Pressure 	     8000000 Bytes,    8000 KB
+GENMALLOC REPORT:          Temperature 	     8000000 Bytes,    8000 KB
+GENMALLOC REPORT:              Density 	     8000000 Bytes,    8000 KB
+GENMALLOC REPORT:               Volume 	     8000000 Bytes,    8000 KB
+GENMALLOC REPORT:            Centroids 	    16000000 Bytes,   16000 KB
+GENMALLOC REPORT:            Neighbors 	   200000000 Bytes,  200000 KB
+GENMALLOC REPORT:        Neighbors ptr 	     8000000 Bytes,    8000 KB
+GENMALLOC REPORT:        Num_Neighbors 	     4000000 Bytes,    4000 KB
+GENMALLOC TOTAL:          Memory Size: 	  1892000000 Bytes, 1892000 KB,  1892 MB
+
+Average Density of mixed material cells    compute time is 56.217960 msecs
+Memory Operations  are 102.0 M memops, 816.0 Mbytes, 100.0 Mflops, 1.02:1 memops:flops
+Estimated performance 61.01 msec, actual 56.22 msec, model error 8.522873 %
+
+Average Density of frac with if            compute time is 105.624832 msecs
+Memory Operations  are 53.3 M memops, 426.4 Mbytes, 3.6 Mflops, 14.81:1 memops:flops
+Estimated performance 93.50 msec, actual 105.62 msec, model error -11.480183 %
+
+Pressure Calculation of mixed material cells with if compute time is 148.123062 msecs
+Memory Operations  are 103.9 M memops, 831.2 Mbytes, 3.9 Mflops, 26.65:1 memops:flops
+Estimated performance 123.76 msec, actual 148.12 msec, model error -16.445105 %
+
+Average Material Density            compute time is 177.564301 msecs
+Memory Operations  are 400.4 M memops, 3203.0 Mbytes, 79.2 Mflops, 5.06:1 memops:flops
+Estimated performance 301.09 msec, actual 177.56 msec, model error 69.568184 %
+
+
+===================================================
+Starting Material-Dominant Full Matrix Data Structure
+===================================================
+Ratios to Full Data Structure
+Sparsity 97.400467 percent/Filled 2.599538 percent
+
+Ratios to Number of Cells
+Pure cell 80.018600 percentage/Mixed material 19.981300 percentage
+
+Ratios to Mixed Material Data Structure
+Mixed material Sparsity 5.000505 percent/Mixed material Filled 94.999496 percent
+
+1 matcell 800186 2 matcell 124881 3 matcell 49907 4 matcell 25025 5 matcell 0
+
+GENMALLOC REPORT:         PressureFrac 	   400000000 Bytes,  400000 KB
+GENMALLOC REPORT:     PressureFrac ptr 	         400 Bytes,       0 KB
+GENMALLOC REPORT:      TemperatureFrac 	   400000000 Bytes,  400000 KB
+GENMALLOC REPORT:  TemperatureFrac ptr 	         400 Bytes,       0 KB
+GENMALLOC REPORT:          DensityFrac 	   400000000 Bytes,  400000 KB
+GENMALLOC REPORT:      DensityFrac ptr 	         400 Bytes,       0 KB
+GENMALLOC REPORT:           VolumeFrac 	   400000000 Bytes,  400000 KB
+GENMALLOC REPORT:       VolumeFrac ptr 	         400 Bytes,       0 KB
+GENMALLOC REPORT:             Pressure 	     8000000 Bytes,    8000 KB
+GENMALLOC REPORT:          Temperature 	     8000000 Bytes,    8000 KB
+GENMALLOC REPORT:              Density 	     8000000 Bytes,    8000 KB
+GENMALLOC REPORT:               Volume 	     8000000 Bytes,    8000 KB
+GENMALLOC REPORT:            Centroids 	    16000000 Bytes,   16000 KB
+GENMALLOC REPORT:            Neighbors 	   200000000 Bytes,  200000 KB
+GENMALLOC REPORT:        Neighbors ptr 	     8000000 Bytes,    8000 KB
+GENMALLOC REPORT:        Num_Neighbors 	     4000000 Bytes,    4000 KB
+GENMALLOC TOTAL:          Memory Size: 	  1860001600 Bytes, 1860001 KB,  1860 MB
+
+Average Density of mixed material cells    compute time is 137.740997 msecs
+Memory Operations  are 153.0 M memops, 1224.0 Mbytes, 101.0 Mflops, 1.51:1 memops:flops
+Estimated performance 91.51 msec, actual 137.74 msec, model error -33.560795 %
+
+Average Density of mixed material cells with if compute time is 95.886147 msecs
+Memory Operations  are 55.6 M memops, 444.8 Mbytes, 3.6 Mflops, 15.45:1 memops:flops
+Estimated performance 94.87 msec, actual 95.89 msec, model error -1.055077 %
+
+Pressure Calculation of frac with if       compute time is 130.609787 msecs
+Memory Operations  are 102.6 M memops, 820.8 Mbytes, 3.9 Mflops, 26.31:1 memops:flops
+Estimated performance 122.99 msec, actual 130.61 msec, model error -5.836564 %
+
+Average Material Density            compute time is 395.814209 msecs
+Memory Operations  are 440.5 M memops, 3524.3 Mbytes, 94.9 Mflops, 4.64:1 memops:flops
+Estimated performance 325.12 msec, actual 395.81 msec, model error -17.860723 %
+
+
+===================================================
+Starting Cell-Dominant Compact Data Structure
+===================================================
+Ratios to Full Data Structure
+Sparsity 97.400467 percent/Filled 2.599538 percent
+
+Ratios to Number of Cells
+Pure cell 80.018600 percentage/Mixed material 19.981300 percentage
+
+Ratios to Mixed Material Data Structure
+Mixed material Sparsity 5.000505 percent/Mixed material Filled 94.999496 percent
+
+1 matcell 800186 2 matcell 124881 3 matcell 49907 4 matcell 25025 5 matcell 0
+
+GENMALLOC REPORT:         Pressurefrac 	     3996664 Bytes,    3996 KB
+GENMALLOC REPORT:      Temperaturefrac 	     3996664 Bytes,    3996 KB
+GENMALLOC REPORT:          Densityfrac 	     3996664 Bytes,    3996 KB
+GENMALLOC REPORT:              Volfrac 	     3996664 Bytes,    3996 KB
+GENMALLOC REPORT:            frac2cell 	     1998332 Bytes,    1998 KB
+GENMALLOC REPORT:             nextfrac 	     1998332 Bytes,    1998 KB
+GENMALLOC REPORT:        imaterialfrac 	     1998332 Bytes,    1998 KB
+GENMALLOC REPORT:             Pressure 	     8000000 Bytes,    8000 KB
+GENMALLOC REPORT:          Temperature 	     8000000 Bytes,    8000 KB
+GENMALLOC REPORT:              Density 	     8000000 Bytes,    8000 KB
+GENMALLOC REPORT:                  Vol 	     8000000 Bytes,    8000 KB
+GENMALLOC REPORT:           nmaterials 	     4000000 Bytes,    4000 KB
+GENMALLOC REPORT:            imaterial 	     4000000 Bytes,    4000 KB
+GENMALLOC REPORT:            Centroids 	    16000000 Bytes,   16000 KB
+GENMALLOC REPORT:            Neighbors 	   200000000 Bytes,  200000 KB
+GENMALLOC REPORT:        Neighbors ptr 	     8000000 Bytes,    8000 KB
+GENMALLOC REPORT:        Num_Neighbors 	     4000000 Bytes,    4000 KB
+GENMALLOC TOTAL:          Memory Size: 	   289981652 Bytes,  289981 KB,   289 MB
+
+Average Density of mixed material cells    compute time is 3.537880 msecs
+Memory Operations  are 2.5 M memops, 14.0 Mbytes, 1.0 Mflops, 2.50:1 memops:flops
+Estimated performance 1.05 msec, actual 3.54 msec, model error -70.431290 %
+
+Average Density of mixed material cells with nmats  compute time is 3.621990 msecs
+Memory Operations  are 2.0 M memops, 12.0 Mbytes, 1.0 Mflops, 2.00:1 memops:flops
+Estimated performance 0.90 msec, actual 3.62 msec, model error -75.242958 %
+
+Average Density of mixed material cells    compute time is 3.801570 msecs
+Memory Operations  are 2.5 M memops, 14.0 Mbytes, 1.0 Mflops, 2.50:1 memops:flops
+Estimated performance 1.05 msec, actual 3.80 msec, model error -72.482285 %
+
+Average Density of mixed materials cells pure filler  compute time is 3.980330 msecs
+Memory Operations  are 2.5 M memops, 14.0 Mbytes, 1.0 Mflops, 2.50:1 memops:flops
+Estimated performance 1.05 msec, actual 3.98 msec, model error -73.718124 %
+
+Pressure Calculation of mixed material cells compute time is 110.014587 msecs
+Memory Operations  are 4.0 M memops, 24.0 Mbytes, 1.5 Mflops, 2.67:1 memops:flops
+Estimated performance 1.79 msec, actual 110.01 msec, model error -98.370087 %
+
+Average Material Density            compute time is 106.059471 msecs
+Memory Operations  are 282.7 M memops, 2261.3 Mbytes, 80.5 Mflops, 3.51:1 memops:flops
+Estimated performance 169.07 msec, actual 106.06 msec, model error 59.409760 %
+
+
+===================================================
+Starting Material-Centric Compact Data Structure
+===================================================
+Ratios to Full Data Structure
+Sparsity 97.400467 percent/Filled 2.599538 percent
+
+Ratios to Number of Cells
+Pure cell 80.018600 percentage/Mixed material 19.981300 percentage
+
+Ratios to Mixed Material Data Structure
+Mixed material Sparsity 5.000505 percent/Mixed material Filled 94.999496 percent
+
+1 matcell 800186 2 matcell 124881 3 matcell 49907 4 matcell 25025 5 matcell 0
+
+GENMALLOC REPORT:       PressureFrac_m 	      209432 Bytes,     209 KB
+GENMALLOC REPORT:    TemperatureFrac_m 	      209432 Bytes,     209 KB
+GENMALLOC REPORT:        DensityFrac_m 	      209432 Bytes,     209 KB
+GENMALLOC REPORT:            VolFrac_m 	      209432 Bytes,     209 KB
+GENMALLOC REPORT:        subset2mesh_m 	      104716 Bytes,     104 KB
+GENMALLOC REPORT:       PressureFrac_m 	      209016 Bytes,     209 KB
+GENMALLOC REPORT:    TemperatureFrac_m 	      209016 Bytes,     209 KB
+GENMALLOC REPORT:        DensityFrac_m 	      209016 Bytes,     209 KB
+GENMALLOC REPORT:            VolFrac_m 	      209016 Bytes,     209 KB
+GENMALLOC REPORT:        subset2mesh_m 	      104508 Bytes,     104 KB
+GENMALLOC REPORT:       PressureFrac_m 	      208280 Bytes,     208 KB
+GENMALLOC REPORT:    TemperatureFrac_m 	      208280 Bytes,     208 KB
+GENMALLOC REPORT:        DensityFrac_m 	      208280 Bytes,     208 KB
+GENMALLOC REPORT:            VolFrac_m 	      208280 Bytes,     208 KB
+GENMALLOC REPORT:        subset2mesh_m 	      104140 Bytes,     104 KB
+GENMALLOC REPORT:       PressureFrac_m 	      205584 Bytes,     205 KB
+GENMALLOC REPORT:    TemperatureFrac_m 	      205584 Bytes,     205 KB
+GENMALLOC REPORT:        DensityFrac_m 	      205584 Bytes,     205 KB
+GENMALLOC REPORT:            VolFrac_m 	      205584 Bytes,     205 KB
+GENMALLOC REPORT:        subset2mesh_m 	      102792 Bytes,     102 KB
+GENMALLOC REPORT:       PressureFrac_m 	      206880 Bytes,     206 KB
+GENMALLOC REPORT:    TemperatureFrac_m 	      206880 Bytes,     206 KB
+GENMALLOC REPORT:        DensityFrac_m 	      206880 Bytes,     206 KB
+GENMALLOC REPORT:            VolFrac_m 	      206880 Bytes,     206 KB
+GENMALLOC REPORT:        subset2mesh_m 	      103440 Bytes,     103 KB
+GENMALLOC REPORT:       PressureFrac_m 	      208120 Bytes,     208 KB
+GENMALLOC REPORT:    TemperatureFrac_m 	      208120 Bytes,     208 KB
+GENMALLOC REPORT:        DensityFrac_m 	      208120 Bytes,     208 KB
+GENMALLOC REPORT:            VolFrac_m 	      208120 Bytes,     208 KB
+GENMALLOC REPORT:        subset2mesh_m 	      104060 Bytes,     104 KB
+GENMALLOC REPORT:       PressureFrac_m 	      207072 Bytes,     207 KB
+GENMALLOC REPORT:    TemperatureFrac_m 	      207072 Bytes,     207 KB
+GENMALLOC REPORT:        DensityFrac_m 	      207072 Bytes,     207 KB
+GENMALLOC REPORT:            VolFrac_m 	      207072 Bytes,     207 KB
+GENMALLOC REPORT:        subset2mesh_m 	      103536 Bytes,     103 KB
+GENMALLOC REPORT:       PressureFrac_m 	      207640 Bytes,     207 KB
+GENMALLOC REPORT:    TemperatureFrac_m 	      207640 Bytes,     207 KB
+GENMALLOC REPORT:        DensityFrac_m 	      207640 Bytes,     207 KB
+GENMALLOC REPORT:            VolFrac_m 	      207640 Bytes,     207 KB
+GENMALLOC REPORT:        subset2mesh_m 	      103820 Bytes,     103 KB
+GENMALLOC REPORT:       PressureFrac_m 	      206560 Bytes,     206 KB
+GENMALLOC REPORT:    TemperatureFrac_m 	      206560 Bytes,     206 KB
+GENMALLOC REPORT:        DensityFrac_m 	      206560 Bytes,     206 KB
+GENMALLOC REPORT:            VolFrac_m 	      206560 Bytes,     206 KB
+GENMALLOC REPORT:        subset2mesh_m 	      103280 Bytes,     103 KB
+GENMALLOC REPORT:       PressureFrac_m 	      207232 Bytes,     207 KB
+GENMALLOC REPORT:    TemperatureFrac_m 	      207232 Bytes,     207 KB
+GENMALLOC REPORT:        DensityFrac_m 	      207232 Bytes,     207 KB
+GENMALLOC REPORT:            VolFrac_m 	      207232 Bytes,     207 KB
+GENMALLOC REPORT:        subset2mesh_m 	      103616 Bytes,     103 KB
+GENMALLOC REPORT:       PressureFrac_m 	      207008 Bytes,     207 KB
+GENMALLOC REPORT:    TemperatureFrac_m 	      207008 Bytes,     207 KB
+GENMALLOC REPORT:        DensityFrac_m 	      207008 Bytes,     207 KB
+GENMALLOC REPORT:            VolFrac_m 	      207008 Bytes,     207 KB
+GENMALLOC REPORT:        subset2mesh_m 	      103504 Bytes,     103 KB
+GENMALLOC REPORT:       PressureFrac_m 	      208632 Bytes,     208 KB
+GENMALLOC REPORT:    TemperatureFrac_m 	      208632 Bytes,     208 KB
+GENMALLOC REPORT:        DensityFrac_m 	      208632 Bytes,     208 KB
+GENMALLOC REPORT:            VolFrac_m 	      208632 Bytes,     208 KB
+GENMALLOC REPORT:        subset2mesh_m 	      104316 Bytes,     104 KB
+GENMALLOC REPORT:       PressureFrac_m 	      207672 Bytes,     207 KB
+GENMALLOC REPORT:    TemperatureFrac_m 	      207672 Bytes,     207 KB
+GENMALLOC REPORT:        DensityFrac_m 	      207672 Bytes,     207 KB
+GENMALLOC REPORT:            VolFrac_m 	      207672 Bytes,     207 KB
+GENMALLOC REPORT:        subset2mesh_m 	      103836 Bytes,     103 KB
+GENMALLOC REPORT:       PressureFrac_m 	      208520 Bytes,     208 KB
+GENMALLOC REPORT:    TemperatureFrac_m 	      208520 Bytes,     208 KB
+GENMALLOC REPORT:        DensityFrac_m 	      208520 Bytes,     208 KB
+GENMALLOC REPORT:            VolFrac_m 	      208520 Bytes,     208 KB
+GENMALLOC REPORT:        subset2mesh_m 	      104260 Bytes,     104 KB
+GENMALLOC REPORT:       PressureFrac_m 	      207672 Bytes,     207 KB
+GENMALLOC REPORT:    TemperatureFrac_m 	      207672 Bytes,     207 KB
+GENMALLOC REPORT:        DensityFrac_m 	      207672 Bytes,     207 KB
+GENMALLOC REPORT:            VolFrac_m 	      207672 Bytes,     207 KB
+GENMALLOC REPORT:        subset2mesh_m 	      103836 Bytes,     103 KB
+GENMALLOC REPORT:       PressureFrac_m 	      208568 Bytes,     208 KB
+GENMALLOC REPORT:    TemperatureFrac_m 	      208568 Bytes,     208 KB
+GENMALLOC REPORT:        DensityFrac_m 	      208568 Bytes,     208 KB
+GENMALLOC REPORT:            VolFrac_m 	      208568 Bytes,     208 KB
+GENMALLOC REPORT:        subset2mesh_m 	      104284 Bytes,     104 KB
+GENMALLOC REPORT:       PressureFrac_m 	      208264 Bytes,     208 KB
+GENMALLOC REPORT:    TemperatureFrac_m 	      208264 Bytes,     208 KB
+GENMALLOC REPORT:        DensityFrac_m 	      208264 Bytes,     208 KB
+GENMALLOC REPORT:            VolFrac_m 	      208264 Bytes,     208 KB
+GENMALLOC REPORT:        subset2mesh_m 	      104132 Bytes,     104 KB
+GENMALLOC REPORT:       PressureFrac_m 	      206112 Bytes,     206 KB
+GENMALLOC REPORT:    TemperatureFrac_m 	      206112 Bytes,     206 KB
+GENMALLOC REPORT:        DensityFrac_m 	      206112 Bytes,     206 KB
+GENMALLOC REPORT:            VolFrac_m 	      206112 Bytes,     206 KB
+GENMALLOC REPORT:        subset2mesh_m 	      103056 Bytes,     103 KB
+GENMALLOC REPORT:       PressureFrac_m 	      209560 Bytes,     209 KB
+GENMALLOC REPORT:    TemperatureFrac_m 	      209560 Bytes,     209 KB
+GENMALLOC REPORT:        DensityFrac_m 	      209560 Bytes,     209 KB
+GENMALLOC REPORT:            VolFrac_m 	      209560 Bytes,     209 KB
+GENMALLOC REPORT:        subset2mesh_m 	      104780 Bytes,     104 KB
+GENMALLOC REPORT:       PressureFrac_m 	      206624 Bytes,     206 KB
+GENMALLOC REPORT:    TemperatureFrac_m 	      206624 Bytes,     206 KB
+GENMALLOC REPORT:        DensityFrac_m 	      206624 Bytes,     206 KB
+GENMALLOC REPORT:            VolFrac_m 	      206624 Bytes,     206 KB
+GENMALLOC REPORT:        subset2mesh_m 	      103312 Bytes,     103 KB
+GENMALLOC REPORT:       PressureFrac_m 	      207952 Bytes,     207 KB
+GENMALLOC REPORT:    TemperatureFrac_m 	      207952 Bytes,     207 KB
+GENMALLOC REPORT:        DensityFrac_m 	      207952 Bytes,     207 KB
+GENMALLOC REPORT:            VolFrac_m 	      207952 Bytes,     207 KB
+GENMALLOC REPORT:        subset2mesh_m 	      103976 Bytes,     103 KB
+GENMALLOC REPORT:       PressureFrac_m 	      208480 Bytes,     208 KB
+GENMALLOC REPORT:    TemperatureFrac_m 	      208480 Bytes,     208 KB
+GENMALLOC REPORT:        DensityFrac_m 	      208480 Bytes,     208 KB
+GENMALLOC REPORT:            VolFrac_m 	      208480 Bytes,     208 KB
+GENMALLOC REPORT:        subset2mesh_m 	      104240 Bytes,     104 KB
+GENMALLOC REPORT:       PressureFrac_m 	      209864 Bytes,     209 KB
+GENMALLOC REPORT:    TemperatureFrac_m 	      209864 Bytes,     209 KB
+GENMALLOC REPORT:        DensityFrac_m 	      209864 Bytes,     209 KB
+GENMALLOC REPORT:            VolFrac_m 	      209864 Bytes,     209 KB
+GENMALLOC REPORT:        subset2mesh_m 	      104932 Bytes,     104 KB
+GENMALLOC REPORT:       PressureFrac_m 	      205784 Bytes,     205 KB
+GENMALLOC REPORT:    TemperatureFrac_m 	      205784 Bytes,     205 KB
+GENMALLOC REPORT:        DensityFrac_m 	      205784 Bytes,     205 KB
+GENMALLOC REPORT:            VolFrac_m 	      205784 Bytes,     205 KB
+GENMALLOC REPORT:        subset2mesh_m 	      102892 Bytes,     102 KB
+GENMALLOC REPORT:       PressureFrac_m 	      209176 Bytes,     209 KB
+GENMALLOC REPORT:    TemperatureFrac_m 	      209176 Bytes,     209 KB
+GENMALLOC REPORT:        DensityFrac_m 	      209176 Bytes,     209 KB
+GENMALLOC REPORT:            VolFrac_m 	      209176 Bytes,     209 KB
+GENMALLOC REPORT:        subset2mesh_m 	      104588 Bytes,     104 KB
+GENMALLOC REPORT:       PressureFrac_m 	      206624 Bytes,     206 KB
+GENMALLOC REPORT:    TemperatureFrac_m 	      206624 Bytes,     206 KB
+GENMALLOC REPORT:        DensityFrac_m 	      206624 Bytes,     206 KB
+GENMALLOC REPORT:            VolFrac_m 	      206624 Bytes,     206 KB
+GENMALLOC REPORT:        subset2mesh_m 	      103312 Bytes,     103 KB
+GENMALLOC REPORT:       PressureFrac_m 	      204232 Bytes,     204 KB
+GENMALLOC REPORT:    TemperatureFrac_m 	      204232 Bytes,     204 KB
+GENMALLOC REPORT:        DensityFrac_m 	      204232 Bytes,     204 KB
+GENMALLOC REPORT:            VolFrac_m 	      204232 Bytes,     204 KB
+GENMALLOC REPORT:        subset2mesh_m 	      102116 Bytes,     102 KB
+GENMALLOC REPORT:       PressureFrac_m 	      207408 Bytes,     207 KB
+GENMALLOC REPORT:    TemperatureFrac_m 	      207408 Bytes,     207 KB
+GENMALLOC REPORT:        DensityFrac_m 	      207408 Bytes,     207 KB
+GENMALLOC REPORT:            VolFrac_m 	      207408 Bytes,     207 KB
+GENMALLOC REPORT:        subset2mesh_m 	      103704 Bytes,     103 KB
+GENMALLOC REPORT:       PressureFrac_m 	      207672 Bytes,     207 KB
+GENMALLOC REPORT:    TemperatureFrac_m 	      207672 Bytes,     207 KB
+GENMALLOC REPORT:        DensityFrac_m 	      207672 Bytes,     207 KB
+GENMALLOC REPORT:            VolFrac_m 	      207672 Bytes,     207 KB
+GENMALLOC REPORT:        subset2mesh_m 	      103836 Bytes,     103 KB
+GENMALLOC REPORT:       PressureFrac_m 	      208280 Bytes,     208 KB
+GENMALLOC REPORT:    TemperatureFrac_m 	      208280 Bytes,     208 KB
+GENMALLOC REPORT:        DensityFrac_m 	      208280 Bytes,     208 KB
+GENMALLOC REPORT:            VolFrac_m 	      208280 Bytes,     208 KB
+GENMALLOC REPORT:        subset2mesh_m 	      104140 Bytes,     104 KB
+GENMALLOC REPORT:       PressureFrac_m 	      208104 Bytes,     208 KB
+GENMALLOC REPORT:    TemperatureFrac_m 	      208104 Bytes,     208 KB
+GENMALLOC REPORT:        DensityFrac_m 	      208104 Bytes,     208 KB
+GENMALLOC REPORT:            VolFrac_m 	      208104 Bytes,     208 KB
+GENMALLOC REPORT:        subset2mesh_m 	      104052 Bytes,     104 KB
+GENMALLOC REPORT:       PressureFrac_m 	      209040 Bytes,     209 KB
+GENMALLOC REPORT:    TemperatureFrac_m 	      209040 Bytes,     209 KB
+GENMALLOC REPORT:        DensityFrac_m 	      209040 Bytes,     209 KB
+GENMALLOC REPORT:            VolFrac_m 	      209040 Bytes,     209 KB
+GENMALLOC REPORT:        subset2mesh_m 	      104520 Bytes,     104 KB
+GENMALLOC REPORT:       PressureFrac_m 	      208528 Bytes,     208 KB
+GENMALLOC REPORT:    TemperatureFrac_m 	      208528 Bytes,     208 KB
+GENMALLOC REPORT:        DensityFrac_m 	      208528 Bytes,     208 KB
+GENMALLOC REPORT:            VolFrac_m 	      208528 Bytes,     208 KB
+GENMALLOC REPORT:        subset2mesh_m 	      104264 Bytes,     104 KB
+GENMALLOC REPORT:       PressureFrac_m 	      209968 Bytes,     209 KB
+GENMALLOC REPORT:    TemperatureFrac_m 	      209968 Bytes,     209 KB
+GENMALLOC REPORT:        DensityFrac_m 	      209968 Bytes,     209 KB
+GENMALLOC REPORT:            VolFrac_m 	      209968 Bytes,     209 KB
+GENMALLOC REPORT:        subset2mesh_m 	      104984 Bytes,     104 KB
+GENMALLOC REPORT:       PressureFrac_m 	      209048 Bytes,     209 KB
+GENMALLOC REPORT:    TemperatureFrac_m 	      209048 Bytes,     209 KB
+GENMALLOC REPORT:        DensityFrac_m 	      209048 Bytes,     209 KB
+GENMALLOC REPORT:            VolFrac_m 	      209048 Bytes,     209 KB
+GENMALLOC REPORT:        subset2mesh_m 	      104524 Bytes,     104 KB
+GENMALLOC REPORT:       PressureFrac_m 	      209944 Bytes,     209 KB
+GENMALLOC REPORT:    TemperatureFrac_m 	      209944 Bytes,     209 KB
+GENMALLOC REPORT:        DensityFrac_m 	      209944 Bytes,     209 KB
+GENMALLOC REPORT:            VolFrac_m 	      209944 Bytes,     209 KB
+GENMALLOC REPORT:        subset2mesh_m 	      104972 Bytes,     104 KB
+GENMALLOC REPORT:       PressureFrac_m 	      209296 Bytes,     209 KB
+GENMALLOC REPORT:    TemperatureFrac_m 	      209296 Bytes,     209 KB
+GENMALLOC REPORT:        DensityFrac_m 	      209296 Bytes,     209 KB
+GENMALLOC REPORT:            VolFrac_m 	      209296 Bytes,     209 KB
+GENMALLOC REPORT:        subset2mesh_m 	      104648 Bytes,     104 KB
+GENMALLOC REPORT:       PressureFrac_m 	      205664 Bytes,     205 KB
+GENMALLOC REPORT:    TemperatureFrac_m 	      205664 Bytes,     205 KB
+GENMALLOC REPORT:        DensityFrac_m 	      205664 Bytes,     205 KB
+GENMALLOC REPORT:            VolFrac_m 	      205664 Bytes,     205 KB
+GENMALLOC REPORT:        subset2mesh_m 	      102832 Bytes,     102 KB
+GENMALLOC REPORT:       PressureFrac_m 	      204960 Bytes,     204 KB
+GENMALLOC REPORT:    TemperatureFrac_m 	      204960 Bytes,     204 KB
+GENMALLOC REPORT:        DensityFrac_m 	      204960 Bytes,     204 KB
+GENMALLOC REPORT:            VolFrac_m 	      204960 Bytes,     204 KB
+GENMALLOC REPORT:        subset2mesh_m 	      102480 Bytes,     102 KB
+GENMALLOC REPORT:       PressureFrac_m 	      210144 Bytes,     210 KB
+GENMALLOC REPORT:    TemperatureFrac_m 	      210144 Bytes,     210 KB
+GENMALLOC REPORT:        DensityFrac_m 	      210144 Bytes,     210 KB
+GENMALLOC REPORT:            VolFrac_m 	      210144 Bytes,     210 KB
+GENMALLOC REPORT:        subset2mesh_m 	      105072 Bytes,     105 KB
+GENMALLOC REPORT:       PressureFrac_m 	      208744 Bytes,     208 KB
+GENMALLOC REPORT:    TemperatureFrac_m 	      208744 Bytes,     208 KB
+GENMALLOC REPORT:        DensityFrac_m 	      208744 Bytes,     208 KB
+GENMALLOC REPORT:            VolFrac_m 	      208744 Bytes,     208 KB
+GENMALLOC REPORT:        subset2mesh_m 	      104372 Bytes,     104 KB
+GENMALLOC REPORT:       PressureFrac_m 	      209152 Bytes,     209 KB
+GENMALLOC REPORT:    TemperatureFrac_m 	      209152 Bytes,     209 KB
+GENMALLOC REPORT:        DensityFrac_m 	      209152 Bytes,     209 KB
+GENMALLOC REPORT:            VolFrac_m 	      209152 Bytes,     209 KB
+GENMALLOC REPORT:        subset2mesh_m 	      104576 Bytes,     104 KB
+GENMALLOC REPORT:       PressureFrac_m 	      207432 Bytes,     207 KB
+GENMALLOC REPORT:    TemperatureFrac_m 	      207432 Bytes,     207 KB
+GENMALLOC REPORT:        DensityFrac_m 	      207432 Bytes,     207 KB
+GENMALLOC REPORT:            VolFrac_m 	      207432 Bytes,     207 KB
+GENMALLOC REPORT:        subset2mesh_m 	      103716 Bytes,     103 KB
+GENMALLOC REPORT:       PressureFrac_m 	      209384 Bytes,     209 KB
+GENMALLOC REPORT:    TemperatureFrac_m 	      209384 Bytes,     209 KB
+GENMALLOC REPORT:        DensityFrac_m 	      209384 Bytes,     209 KB
+GENMALLOC REPORT:            VolFrac_m 	      209384 Bytes,     209 KB
+GENMALLOC REPORT:        subset2mesh_m 	      104692 Bytes,     104 KB
+GENMALLOC REPORT:       PressureFrac_m 	      209144 Bytes,     209 KB
+GENMALLOC REPORT:    TemperatureFrac_m 	      209144 Bytes,     209 KB
+GENMALLOC REPORT:        DensityFrac_m 	      209144 Bytes,     209 KB
+GENMALLOC REPORT:            VolFrac_m 	      209144 Bytes,     209 KB
+GENMALLOC REPORT:        subset2mesh_m 	      104572 Bytes,     104 KB
+GENMALLOC REPORT:       PressureFrac_m 	      206728 Bytes,     206 KB
+GENMALLOC REPORT:    TemperatureFrac_m 	      206728 Bytes,     206 KB
+GENMALLOC REPORT:        DensityFrac_m 	      206728 Bytes,     206 KB
+GENMALLOC REPORT:            VolFrac_m 	      206728 Bytes,     206 KB
+GENMALLOC REPORT:        subset2mesh_m 	      103364 Bytes,     103 KB
+GENMALLOC REPORT:       PressureFrac_m 	      204656 Bytes,     204 KB
+GENMALLOC REPORT:    TemperatureFrac_m 	      204656 Bytes,     204 KB
+GENMALLOC REPORT:        DensityFrac_m 	      204656 Bytes,     204 KB
+GENMALLOC REPORT:            VolFrac_m 	      204656 Bytes,     204 KB
+GENMALLOC REPORT:        subset2mesh_m 	      102328 Bytes,     102 KB
+GENMALLOC REPORT:       PressureFrac_m 	      206144 Bytes,     206 KB
+GENMALLOC REPORT:    TemperatureFrac_m 	      206144 Bytes,     206 KB
+GENMALLOC REPORT:        DensityFrac_m 	      206144 Bytes,     206 KB
+GENMALLOC REPORT:            VolFrac_m 	      206144 Bytes,     206 KB
+GENMALLOC REPORT:        subset2mesh_m 	      103072 Bytes,     103 KB
+GENMALLOC REPORT:       PressureFrac_m 	      211528 Bytes,     211 KB
+GENMALLOC REPORT:    TemperatureFrac_m 	      211528 Bytes,     211 KB
+GENMALLOC REPORT:        DensityFrac_m 	      211528 Bytes,     211 KB
+GENMALLOC REPORT:            VolFrac_m 	      211528 Bytes,     211 KB
+GENMALLOC REPORT:        subset2mesh_m 	      105764 Bytes,     105 KB
+GENMALLOC REPORT:       PressureFrac_m 	      210624 Bytes,     210 KB
+GENMALLOC REPORT:    TemperatureFrac_m 	      210624 Bytes,     210 KB
+GENMALLOC REPORT:        DensityFrac_m 	      210624 Bytes,     210 KB
+GENMALLOC REPORT:            VolFrac_m 	      210624 Bytes,     210 KB
+GENMALLOC REPORT:        subset2mesh_m 	      105312 Bytes,     105 KB
+GENMALLOC REPORT:         PressureFrac 	         400 Bytes,       0 KB
+GENMALLOC REPORT:      TemperatureFrac 	         400 Bytes,       0 KB
+GENMALLOC REPORT:          DensityFrac 	         400 Bytes,       0 KB
+GENMALLOC REPORT:           VolumeFrac 	         400 Bytes,       0 KB
+GENMALLOC REPORT:          subset2mesh 	         400 Bytes,       0 KB
+GENMALLOC REPORT:            ncellsmat 	         200 Bytes,       0 KB
+GENMALLOC REPORT:               matids 	    16000000 Bytes,   16000 KB
+GENMALLOC REPORT:            nmatscell 	     4000000 Bytes,    4000 KB
+GENMALLOC REPORT:          mesh2subset 	   200000000 Bytes,  200000 KB
+GENMALLOC REPORT:      mesh2subset ptr 	         400 Bytes,       0 KB
+GENMALLOC REPORT:              Density 	     8000000 Bytes,    8000 KB
+GENMALLOC REPORT:               Volume 	     8000000 Bytes,    8000 KB
+GENMALLOC REPORT:            Centroids 	    16000000 Bytes,   16000 KB
+GENMALLOC REPORT:            Neighbors 	   200000000 Bytes,  200000 KB
+GENMALLOC REPORT:        Neighbors ptr 	     8000000 Bytes,    8000 KB
+GENMALLOC REPORT:        Num_Neighbors 	     4000000 Bytes,    4000 KB
+GENMALLOC TOTAL:          Memory Size: 	   510794284 Bytes,  510794 KB,   510 MB
+
+Average Density of cells - Mat Dominant loop  -  compute time is 23.796410 msecs
+Memory Operations  are 19.6 M memops, 151.6 Mbytes, 3.6 Mflops, 5.44:1 memops:flops
+Estimated performance 11.33 msec, actual 23.80 msec, model error -52.375202 %
+
+Average Density of cells - Cell Dominant loop  -  compute time is 36.500809 msecs
+Memory Operations  are 45.9 M memops, 274.8 Mbytes, 3.6 Mflops, 12.75:1 memops:flops
+Estimated performance 20.54 msec, actual 36.50 msec, model error -43.720673 %
+
+Pressure Calculation of cells - Mat-Centric -  compute time is 4.053170 msecs
+Memory Operations  are 5.2 M memops, 41.6 Mbytes, 3.9 Mflops, 1.33:1 memops:flops
+Estimated performance 3.11 msec, actual 4.05 msec, model error -23.275917 %
+
+Average Material Density  -  compute time is 307.946655 msecs
+Memory Operations  are 341.1 M memops, 2729.2 Mbytes, 83.2 Mflops, 4.10:1 memops:flops
+Estimated performance 204.05 msec, actual 307.95 msec, model error -33.738098 %
+
