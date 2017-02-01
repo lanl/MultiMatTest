@@ -1,10 +1,22 @@
 Multi-Material test code: Full and sparse data structures
 
-This code is a set of multi-material test kernels used on a random and geometric multi-material mesh to test the performance of different full and sparse data structures. It supports the paper "A Comparative Study of Multi-material Data Structures for Computational Physics Applications", Technical Report LA-UR-16-23889
+This code is a set of multi-material test kernels used on a random and geometric multi-material mesh to test the performance of different full and sparse data structures. It supports the paper "A Comparative Study of Multi-material Data Structures for Computational Physics Applications", Technical Report LA-UR-16-23889, Version 2
 
 Authors:
 
 Rao Garimella, T-5, (rao@lanl.gov)
 Bob Robey XCP-2 (brobey@lanl.gov)
 
-Copyright 2016 
+Copyright 2017 
+
+To run the code, first untar the volfrac.dat.tgz file
+
+   tar -xzvf volfrac.dat.tgz
+
+Build
+
+   cmake .
+
+And run
+
+   ./MultiMatTest 
