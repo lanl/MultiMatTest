@@ -14,6 +14,7 @@ To run the code, first untar the volfrac.dat.tgz file
    tar -xzvf volfrac.dat.tgz
 
 Build
+   Rename one of the CMakeFiles* files to CMakeFiles.txt. One is the default, another turns off vectorization, and another includes more vectorization using AVX-512 instructions.
 
    cmake .
 
