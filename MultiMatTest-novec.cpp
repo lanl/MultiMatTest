@@ -20,11 +20,8 @@
 #include "genmalloc.h"
 #include "timer.h"
 
-//#define CLOCK_RATE 3.6e9 // Hz Skylake 
-//#define STREAM_RATE 27000; // B/sec
-
-#define CLOCK_RATE 1.4e9 // Hz KNL
-#define STREAM_RATE 13000 // B/sec 
+#define CLOCK_RATE 3.6e9 // Hz Skylake 
+#define STREAM_RATE 27000; // B/sec
 
 #define MININT(i,j) (((i) < (j)) ? (i) : (j))
 
@@ -102,7 +99,7 @@ void print_performance_estimates(float est_perf, int64_t memops8byte,
 bool verbose = false;
 bool memory_verbose = true;
 int itermax = 100;
-int ncells  = 1000000;
+int ncells  = 1000000;//was 1000000 initially. x4 to increase problem size
 int nmats   = 50;
 float est_perf, act_perf, model_error;
 
@@ -336,7 +333,6 @@ int main(int argc, char **argv) {
          cpu_timer_start(&tstart_cpu);
 
          for (int ic = 0; ic < ncells; ic++){
-            #pragma omp simd
             for (int m = 0; m < nmats; m++){
 	       if (Volfrac[ic][m] > 0.){
                   Pressurefrac[ic][m] = (nmatconsts[m]*Densityfrac[ic][m]*Temperaturefrac[ic][m])/(Volfrac[ic][m]);
@@ -391,7 +387,6 @@ int main(int argc, char **argv) {
                dsqr[n] += ddist*ddist;
              }
            }
-           #pragma omp simd//optrpt says hurts performance (estimated speedup 0.47)
            for (int m = 0; m < nmats; m++){
              if (Volfrac[ic][m] > 0.0) {
                int nnm = 0;         // number of nbrs with this material
@@ -476,7 +471,6 @@ int main(int argc, char **argv) {
          for (int ic = 0; ic < ncells; ic++){
 	    Density_average[ic] = 0.0;
          }
-         #pragma omp simd  //optrpt says hurts performance (estimated speedup 0.91)
          for (int m = 0; m < nmats; m++){
             for (int ic = 0; ic < ncells; ic++){
                Density_average[ic] += Densityfrac[m][ic]*Volfrac[m][ic];
@@ -553,9 +547,8 @@ int main(int argc, char **argv) {
       time_sum = 0;
       for (int iter=0; iter< itermax; iter++){
          cpu_timer_start(&tstart_cpu);
-         //#pragma omp simd hurts performance (estimated speedup 0.35)
+
          for (int m = 0; m < nmats; m++){
-            #pragma omp simd
             for (int ic = 0; ic < ncells; ic++){
                if (Volfrac[m][ic] > 0.0) {
                   Pressurefrac[m][ic] = (nmatconsts[m]*Densityfrac[m][ic]*Temperaturefrac[m][ic])/Volfrac[m][ic];
@@ -596,10 +589,9 @@ int main(int argc, char **argv) {
       time_sum = 0;
       for (int iter=0; iter< itermax; iter++){
          cpu_timer_start(&tstart_cpu);
-         //#pragma omp simd made performance much worse
+
          for (int m = 0; m < nmats; m++) {
-            #pragma omp simd
-            for (int ic = 0; ic < ncells; ic++){
+           for (int ic = 0; ic < ncells; ic++){
              if (Volfrac[m][ic] > 0.0) {
                double xc[2];
                xc[0] = cen[ic][0]; xc[1] = cen[ic][1];
@@ -711,7 +703,7 @@ int main(int argc, char **argv) {
       time_sum = 0;
       for (int iter=0; iter< itermax; iter++){
          cpu_timer_start(&tstart_cpu);
-         #pragma omp simd
+
          for (int ic = 0; ic < ncells; ic++){
             density_ave = 0.0;
 	    int ix = imaterial[ic];
@@ -747,7 +739,7 @@ int main(int argc, char **argv) {
       time_sum = 0;
       for (int iter=0; iter< itermax; iter++){
          cpu_timer_start(&tstart_cpu);
-         #pragma omp simd
+
          for (int ic = 0; ic < ncells; ic++){
             density_ave = 0.0;
 	    int mstart = imaterial[ic];
@@ -785,7 +777,7 @@ int main(int argc, char **argv) {
       time_sum = 0;
       for (int iter=0; iter< itermax; iter++){
          cpu_timer_start(&tstart_cpu);
-         #pragma omp simd
+
          for (int ic = 0; ic < ncells; ic++){
             density_ave = 0.0;
 	    int ix = imaterial[ic];
@@ -828,7 +820,7 @@ int main(int argc, char **argv) {
       time_sum = 0;
       for (int iter=0; iter< itermax; iter++){
          cpu_timer_start(&tstart_cpu);
-         #pragma omp simd
+
          for (int ic = 0; ic < ncells; ic++){
 	    int ix = imaterial[ic];
 	    if (ix <= 0 ) { // material numbers for clean cells start at 1
@@ -870,7 +862,7 @@ int main(int argc, char **argv) {
       time_sum = 0;
       for (int iter=0; iter< itermax; iter++){
          cpu_timer_start(&tstart_cpu);
-         #pragma omp simd
+
          for (int ic = 0; ic < ncells; ic++){
             int ix = imaterial[ic];
             if (ix <= 0) { // material numbers for clean cells start at 1
@@ -912,6 +904,7 @@ int main(int argc, char **argv) {
       time_sum = 0;
       for (int iter=0; iter< itermax; iter++){
          cpu_timer_start(&tstart_cpu);
+
          for (int ic = 0; ic < ncells; ic++) {
            for (int m = 0; m < nmats; m++) 
              MatDensity_average[ic][m] = 0.0;
@@ -1106,7 +1099,7 @@ int main(int argc, char **argv) {
       time_sum = 0;
       for (int iter=0; iter< itermax; iter++){
          cpu_timer_start(&tstart_cpu);
-         #pragma omp simd//optrpt says hurts performance (estimated speedup 0.81)
+
          for (int C = 0; C < ncells; C++){
             double density_ave = 0.0;
             for (int im = 0; im < nmatscell[C]; im++){
@@ -1188,7 +1181,7 @@ int main(int argc, char **argv) {
          for (int m = 0; m < nmats; m++) {
            for (int C = 0; C < ncells; C++)
              MatDensity_average[m][C] = 0.0;
-           //#pragma omp simd
+
            for (int c = 0; c < ncellsmat[m]; c++){  // Note that this is c not C
              int C = subset2mesh[m][c];
              double xc[2];
@@ -1199,7 +1192,6 @@ int main(int argc, char **argv) {
              for (int n = 0; n < nn; n++) cnbrs[n] = nbrs[C][n];
              for (int n = 0; n < nn; n++) {
                dsqr[n] = 0.0;
-               //#pragma omp simd
                for (int d = 0; d < 1; d++) {
                  double ddist = (xc[d] - cen[cnbrs[n]][d]);
                  dsqr[n] += ddist*ddist;
@@ -1207,7 +1199,6 @@ int main(int argc, char **argv) {
              }
 
              int nnm = 0;         // number of nbrs with this material
-             //#pragma omp simd
              for (int n = 0; n < nn; n++){
                int C_j = cnbrs[n];     
                int c_j = mesh2subset[m][C_j];
@@ -1446,7 +1437,7 @@ void setup_cell_dominant_data_structure(int method, double *&Vol, double *&Densi
 
 
    get_vol_frac_matrix(method, Volfrac, filled_percentage);
-   //#pragma omp simd //optrpt says hurts performance (estimated speedup 0.32)
+
    for (int ic = 0; ic < ncells; ic++){
      Vol[ic] = 0.0;
       for (int m = 0; m < nmats; m++){
@@ -1478,7 +1469,7 @@ void setup_material_dominant_data_structure(int method, double *&Vol, double *&D
 
    double **Volfrac_fullcc;  // cell centric full matrix of fractional volumes  
    get_vol_frac_matrix(method, Volfrac_fullcc, filled_percentage);
-   //#pragma omp simd //optrpt says hurts performance (estimated speedup (0.33) 
+   
    for (int m = 0; m < nmats; m++){
       for (int ic = 0; ic < ncells; ic++){
         if (Volfrac_fullcc[ic][m] > 0.0) {
@@ -1912,7 +1903,6 @@ void convert_compact_cell_2_compact_material(int ncells, int nmats,
        Temperaturefrac[m][c] = CTemperature[ic];
        (ncellsmat[m])++;
      } else {
-       //#pragma omp simd probably hurts performance (estimated speedup 0.44)
        for (int im = 0; im < CNmats; im++){
          int m = Cimaterialfrac[ix]-1;
          int c = ncellsmat[m];
@@ -2129,7 +2119,6 @@ void get_vol_frac_matrix_file(double **&Volfrac, float& filled_percentage) {
    int threematcell = 0;
    int fourmatcell = 0;
    int fiveplusmatcell = 0;
-   //#pragma omp simd
    for (int ic = 0; ic < ncells; ic++) {
      int mat_count = 0;
      for (int m = 0; m < nmats; m++) {
@@ -2199,6 +2188,7 @@ void get_neighbors(int ncells, int *&num_nbrs, int **&nbrs) {
     fprintf(stderr, "Number of cells in mesh is not a perfect square");
     exit(-1);
   }
+
   for (int i = 0; i < ncells1; i++) {
     for (int j = 0; j < ncells1; j++) {
       int c = i*ncells1 + j;
