@@ -687,9 +687,9 @@ int main(int argc, char **argv) {
           pure_cell_count++;
         }
       }
-      float mixed_cell_fraction = mixed_cell_count/ncells;
-      float pure_cell_fraction = pure_cell_count/ncells;
-      int nmats_ave = (pure_cell_count + nmixlength)/ncells;
+      float mixed_cell_fraction = (float)mixed_cell_count/(float)ncells;
+      float pure_cell_fraction = (float)pure_cell_count/(float)ncells;
+      int nmats_ave = ((float)pure_cell_count + (float)nmixlength)/(float)ncells;
 
       if (memory_verbose){
          genmalloc_MB_memory_report();
