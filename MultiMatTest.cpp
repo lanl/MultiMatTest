@@ -729,7 +729,7 @@ int main(int argc, char **argv) {
       memops8byte += mixed_cell_fraction*ncells; // line 8 loads
       flops       += mixed_cell_fraction*ncells; // line 8 flops
       float loop_overhead = 1.0/CLOCK_RATE * 20; // Estimate a 20 cycle loop exit overhead
-      penalty_msecs = 1000.0*cache_miss_freq*loop_overhead*mixed_cell_fraction*(float)ncells; // line 5 for
+      penalty_msecs = 1000.0*loop_overhead*mixed_cell_fraction*(float)ncells; // line 5 for
       print_performance_estimates(act_perf, memops8byte, memops4byte, flops, penalty_msecs);
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
