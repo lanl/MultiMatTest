@@ -489,9 +489,9 @@ int main(int argc, char **argv) {
 
       memops  = ncells;         // line 3 loads
       memops += ncells*nmats;   // line 6 stores
-      memops += 2*ncells*nmats; // line 7 loads
+      memops += 3*ncells*nmats; // line 7 loads
       flops   = 2*ncells*nmats; // line 7 flops
-      memops += 2*ncells;       // line 11 loads/stores 
+      memops += 3*ncells;       // line 11 loads/stores 
       flops  += ncells;         // line 11 flops
       penalty_msecs = 0.0;
       print_performance_estimates(act_perf, memops, 0, flops, penalty_msecs);
@@ -1079,15 +1079,22 @@ int main(int argc, char **argv) {
       for (int m = 0; m < nmats; m++)
         for (int c = 0; c < ncellsmat[m]; c++)
           ninner++;
-      memops8byte  = ncells;       // Initialization of Density
-      memops8byte  += (int64_t) (8*cache_miss_freq + (1-cache_miss_freq))*ninner ;    // load Density (cache miss, reload 8 doubles)
-      memops8byte  += 2*ninner;    // load Densityfrac, Volfrac
+      // ninner = F_f*N_m*N_c
+      memops8byte  = ncells;     // Initialization of Density
+
+      memops4byte  = nmats;      // load ncmat
+      memops8byte += nmats;      // load subset2mesh
+
+      memops8byte  += 4*ninner;    // load subset, Density, Densityfrac, Volfrac
       memops8byte  += ninner;      // store Density         
-      memops8byte  += ncells;      // load cell volume, Vol
-      memops8byte  += 2*ncells;    // Load and Store Density
-      memops4byte = ninner;        // load subset2mesh
+
+      memops8byte  += 2*ncells;    // load density, Vol
+      memops8byte  += ncells;      // Store Density
+
       flops        = 2*ninner;     // multiply and add
       flops        += ncells;     // divide cell density by cell volume
+
+      //memops8byte  += (int64_t) (8*cache_miss_freq + (1-cache_miss_freq))*ninner ;    // load Density (cache miss, reload 8 doubles)
       float loop_overhead = 1.0/CLOCK_RATE * 20; // Estimate a 20 cycle loop exit overhead
       penalty_msecs = 0.0;    // Only if we account for removed materials with an if-check
       print_performance_estimates(act_perf, memops8byte, memops4byte, flops, penalty_msecs);
