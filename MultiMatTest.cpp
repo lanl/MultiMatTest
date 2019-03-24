@@ -312,7 +312,7 @@ int main(int argc, char **argv) {
 
       float cache_miss_freq = method ? 0.7 : 1.0;
       memops  = ncells*nmats;                                   // line 4 loads
-      memops += (int64_t)(filled_fraction*(float)(ncells*nmats));   // line 5 loads 
+      memops += (int64_t)(filled_fraction*(float)(2*ncells*nmats));   // line 5 loads 
       memops += 2*ncells;                                       // line 8 stores and loads
       flops   = (int64_t)(filled_fraction*(float)(2*ncells*nmats)); // line 5 flops
       flops  += ncells;                                         // line 8 flops
