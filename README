@@ -14,9 +14,12 @@ To run the code, first untar the volfrac.dat.tgz file
    tar -xzvf volfrac.dat.tgz
 
 Build
+   Rename one of the CMakeFiles* files to CMakeFiles.txt. One is the default, another turns off vectorization, and another includes more vectorization using AVX-512 instructions.   
 
    cmake .
 
 And run
 
    ./MultiMatTest 
+
+Note that accurate results depend on the user changing the clock rate and stream rate in MultiMatTest.cpp appropriately for the current machine.
