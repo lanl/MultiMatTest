@@ -16,6 +16,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <sys/time.h>
 #include "input.h"
 #include "genmalloc.h"
 #include "timer.h"
@@ -104,7 +105,7 @@ int nmats   = 50;
 float est_perf, act_perf, model_error;
 
 int main(int argc, char **argv) {
-   struct timeval tstart_cpu;
+   struct timespec tstart_cpu;
    double density_ave;
    double time_sum;
    double VolTotal;
