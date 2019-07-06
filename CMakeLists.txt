@@ -10,7 +10,6 @@ set (MultiMatTest_VERSION_MAJOR 2)
 set (MultiMatTest_VERSION_MINOR 0.7)
 set (MultiMatTest_VERSION "${MultiMatTest_VERSION_MAJOR}.${MultiMatTest_VERSION_MINOR}")
 
-set (CMAKE_CXX_STANDARD 11)
 set (CMAKE_C_STANDARD 99)
  
 if (NOT CMAKE_BUILD_TYPE)
