@@ -24,7 +24,7 @@ using namespace std;
 
 //  Global variables.
 const char *PACKAGE_VERSION = "1.0";
-char progName[12];      //  Program name.
+char progName[13];      //  Program name.
 char progVers[8];       //  Program version.
 
 //  External global variables.
